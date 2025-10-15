@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, AppBar, Toolbar, IconButton, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Menu as MenuIcon } from '@mui/icons-material';
 import SideMenu from './SideMenu';
 import Dashboard from './Dashboard';
 import Vendors from './Vendors';
@@ -7,9 +8,20 @@ import UnderConstruction from './UnderConstruction';
 
 const Layout = () => {
   const [activeItem, setActiveItem] = useState('dashboard');
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleItemClick = (itemId) => {
     setActiveItem(itemId);
+    // Close mobile menu when item is clicked
+    if (isMobile) {
+      setMobileOpen(false);
+    }
+  };
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
 
   const getPageName = (itemId) => {
@@ -66,7 +78,43 @@ const Layout = () => {
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh', width: '100%' }}>
-      <SideMenu activeItem={activeItem} onItemClick={handleItemClick} />
+      {/* Mobile App Bar */}
+      {isMobile && (
+        <AppBar
+          position="fixed"
+          sx={{
+            width: { md: `calc(100% - 280px)` },
+            ml: { md: '280px' },
+            backgroundColor: '#2c2c2c',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+            zIndex: theme.zIndex.drawer + 1
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div" sx={{ color: 'white', fontWeight: 'bold' }}>
+              Wah! Smart Deals
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      )}
+
+      <SideMenu 
+        activeItem={activeItem} 
+        onItemClick={handleItemClick}
+        mobileOpen={mobileOpen}
+        onMobileClose={() => setMobileOpen(false)}
+        isMobile={isMobile}
+      />
+      
       <Box
         component="main"
         sx={{
@@ -74,7 +122,8 @@ const Layout = () => {
           backgroundColor: '#f5f5f5',
           minHeight: '100vh',
           position: 'relative',
-          width:"100%"
+          width: '100%',
+          pt: isMobile ? '64px' : 0, // Add top padding for mobile app bar
         }}
       >
         {renderContent()}

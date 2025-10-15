@@ -33,7 +33,7 @@ import {
 
 const drawerWidth = 280;
 
-const SideMenu = ({ activeItem, onItemClick }) => {
+const SideMenu = ({ activeItem, onItemClick, mobileOpen, onMobileClose, isMobile }) => {
   const [revenueOpen, setRevenueOpen] = useState(false);
   const [walletOpen, setWalletOpen] = useState(false);
 
@@ -73,25 +73,8 @@ const SideMenu = ({ activeItem, onItemClick }) => {
     console.log('Logout clicked');
   };
 
-  return (
-    <Drawer
-      variant="permanent"
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: drawerWidth,
-          boxSizing: 'border-box',
-          backgroundColor: '#2c2c2c',
-          color: 'white',
-          border: 'none',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          height: '100vh',
-        },
-      }}
-    >
+  const drawerContent = (
+    <>
       {/* Logo Section */}
       <Box sx={{ p: 3, display: 'flex', alignItems: 'center', gap: 1 }}>
         <ShoppingBag sx={{ color: '#ff6b35', fontSize: 28 }} />
@@ -224,7 +207,56 @@ const SideMenu = ({ activeItem, onItemClick }) => {
           </ListItemButton>
         </ListItem>
       </List>
-    </Drawer>
+    </>
+  );
+
+  return (
+    <>
+      {/* Mobile Drawer */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={onMobileClose}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: drawerWidth,
+            backgroundColor: '#2c2c2c',
+            color: 'white',
+            border: 'none',
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+
+      {/* Desktop Drawer */}
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: 'none', md: 'block' },
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            backgroundColor: '#2c2c2c',
+            color: 'white',
+            border: 'none',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            height: '100vh',
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+    </>
   );
 };
 
