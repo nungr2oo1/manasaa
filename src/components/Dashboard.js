@@ -155,12 +155,12 @@ const MetricCard = ({ title, value, trend, trendValue, trendColor, icon, loading
         transition: 'all 0.3s ease'
       }
     }}>
-      <CardContent sx={{ p: { xs: 2.5, sm: 3, md: 3.5 }, position: 'relative' }}>
+      <CardContent sx={{ p: { xs: 1.5, sm: 2, md: 2.5 }, position: 'relative' }}>
         <Box sx={{ 
           display: 'flex', 
           justifyContent: 'space-between', 
           alignItems: 'flex-start', 
-          mb: 3 
+          mb: 2 
         }}>
           <Typography variant="h6" color="text.secondary" sx={{ 
             fontSize: { xs: '0.9rem', sm: '1rem' },
@@ -191,7 +191,7 @@ const MetricCard = ({ title, value, trend, trendValue, trendColor, icon, loading
             variant="h4" 
             sx={{ 
               fontWeight: 800, 
-              mb: 2,
+              mb: 1.5,
               fontSize: { xs: '2rem', sm: '2.25rem', md: '2.5rem' },
               lineHeight: 1.1,
               background: 'linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)',
@@ -281,12 +281,12 @@ const WidgetCard = ({ title, children, live = true, loading = false }) => (
         transition: 'opacity 0.3s ease'
       }
     }}>
-      <CardContent sx={{ p: { xs: 2.5, sm: 3, md: 3.5 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <CardContent sx={{ p: { xs: 1.5, sm: 2, md: 2.5 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ 
           display: 'flex', 
           justifyContent: 'space-between', 
           alignItems: 'center', 
-          mb: 3,
+          mb: 2,
           flexShrink: 0
         }}>
           <Typography variant="h6" sx={{ 
@@ -482,7 +482,7 @@ const Dashboard = () => {
       background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
       minHeight: '100vh', 
       width: '100%',
-      padding: { xs: 2, sm: 3, md: 4 },
+      padding: { xs: 1, sm: 1.5, md: 2 },
       position: 'relative',
       '&::before': {
         content: '""',
@@ -500,19 +500,19 @@ const Dashboard = () => {
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center', 
-        mb: { xs: 4, md: 5 },
-        px: { xs: 1, sm: 2 },
+        mb: { xs: 2, md: 2.5 },
+        px: { xs: 0.5, sm: 1 },
         position: 'relative',
         zIndex: 1
       }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
           <Box sx={{ 
-            p: 1.5, 
-            borderRadius: 3, 
+            p: 1, 
+            borderRadius: 2, 
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)'
           }}>
-            <DashboardIcon sx={{ color: 'white', fontSize: 28 }} />
+            <DashboardIcon sx={{ color: 'white', fontSize: 24 }} />
           </Box>
           <Box>
             <Typography variant="h4" sx={{ 
@@ -521,7 +521,7 @@ const Dashboard = () => {
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              fontSize: { xs: '1.75rem', sm: '2rem', md: '2.25rem' },
+              fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
               letterSpacing: '-0.02em'
             }}>
               Dashboard
@@ -535,7 +535,7 @@ const Dashboard = () => {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
           {/* <Tooltip title="Refresh data">
             <IconButton 
               onClick={handleRefresh}
@@ -566,7 +566,7 @@ const Dashboard = () => {
             <IconButton 
               onClick={handleNotificationClick}
               sx={{ 
-                p: 1.5,
+                p: 1,
                 backgroundColor: 'rgba(255,255,255,0.8)',
                 backdropFilter: 'blur(10px)',
                 border: '1px solid rgba(255,255,255,0.2)',
@@ -782,18 +782,18 @@ const Dashboard = () => {
             </IconButton>
           </Tooltip> */}
           <Avatar sx={{ 
-            width: 44, 
-            height: 44,
-            border: '3px solid rgba(255,255,255,0.8)',
+            width: 36, 
+            height: 36,
+            border: '2px solid rgba(255,255,255,0.8)',
             boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
           }}>
-            <AccountCircleIcon sx={{ fontSize: 28 }} />
+            <AccountCircleIcon sx={{ fontSize: 24 }} />
           </Avatar>
         </Box>
       </Box>
 
       {/* Metric Cards */}
-      <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: { xs: 4, md: 5 }, position: 'relative', zIndex: 1 }}>
+      <Grid container spacing={{ xs: 1.5, sm: 2, md: 2.5 }} sx={{ mb: { xs: 2, md: 3 }, position: 'relative', zIndex: 1 }}>
         <Grid item xs={12} sm={6} md={3}>
           <Grow in timeout={600}>
             <div>
@@ -853,34 +853,34 @@ const Dashboard = () => {
       </Grid>
 
       {/* Dashboard Widgets */}
-      <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ position: 'relative', zIndex: 1 }}>
+      <Grid container spacing={{ xs: 1.5, sm: 2, md: 2.5 }} sx={{ position: 'relative', zIndex: 1 }}>
         {/* Customers */}
         <Grid item xs={12} md={6} lg={4}>
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Customers" loading={isLoading}>
-            <Box sx={{ mb: 3 }}>
+            <Box sx={{ mb: 2 }}>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Total Customer</Typography>
               <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>3,500</Typography>
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box sx={{ mb: 2 }}>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>PPU</Typography>
               <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>$2.25</Typography>
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box sx={{ mb: 2 }}>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Subscriber</Typography>
               <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>1,200</Typography>
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box sx={{ mb: 2 }}>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>New This Month</Typography>
               <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>+245</Typography>
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box sx={{ mb: 2 }}>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Active Rate</Typography>
               <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>78%</Typography>
             </Box>
-            <Box sx={{ mb: 3, p: 2, background: 'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)', borderRadius: 3, border: '1px solid rgba(255, 193, 7, 0.2)' }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 1.5, fontWeight: 600 }}>
+            <Box sx={{ mb: 2, p: 1.5, background: 'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)', borderRadius: 2, border: '1px solid rgba(255, 193, 7, 0.2)' }}>
+              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 1, fontWeight: 600 }}>
                 Gap Analysis: 2,300 non-subscribers (65.7%)
               </Typography>
               <LinearProgress 
@@ -897,9 +897,9 @@ const Dashboard = () => {
                 }} 
               />
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1 }}>
+            {/* <Box sx={{ height: 200, flexGrow: 1 }}>
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={customerTrendData} margin={{ top: 15, right: 15, left: 15, bottom: 15 }}>
+                <LineChart data={customerTrendData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
                   <XAxis 
                     dataKey="year" 
@@ -936,7 +936,7 @@ const Dashboard = () => {
                   </defs>
                 </LineChart>
               </ResponsiveContainer>
-            </Box>
+            </Box> */}
               </WidgetCard>
             </div>
           </Grow>
@@ -947,11 +947,11 @@ const Dashboard = () => {
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Vendors" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
+            <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>10</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Vendors</Typography>
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1, mb: 3 }}>
+            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -1010,17 +1010,17 @@ const Dashboard = () => {
         </Grid>
 
         {/* Deals */}
-        <Grid item xs={12} md={6} lg={4}>
+        {/* <Grid item xs={12} md={6} lg={4}>
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Deals" loading={isLoading}>
-            <Box sx={{ mb: 3 }}>
+            <Box sx={{ mb: 2 }}>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Total Deals</Typography>
               <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>20</Typography>
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1, mb: 3 }}>
+            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={dealsData} layout="horizontal" margin={{ top: 15, right: 15, left: 15, bottom: 15 }}>
+                <BarChart data={dealsData} layout="horizontal" margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
                   <XAxis 
                     type="number" 
@@ -1082,18 +1082,18 @@ const Dashboard = () => {
               </WidgetCard>
             </div>
           </Grow>
-        </Grid>
+        </Grid> */}
 
         {/* Coupons */}
         <Grid item xs={12} md={6} lg={4}>
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Coupons" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
+            <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>50</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Coupons</Typography>
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1, mb: 3 }}>
+            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -1156,11 +1156,11 @@ const Dashboard = () => {
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Communities" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
+            <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>50</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Communities</Typography>
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1, mb: 3 }}>
+            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -1224,8 +1224,8 @@ const Dashboard = () => {
             <div>
               <WidgetCard title="Wah! Revenue" loading={isLoading}>
             {revenueData.map((item, index) => (
-              <Box key={index} sx={{ mb: 3 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1.5 }}>
+              <Box key={index} sx={{ mb: 2 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                   <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>{item.category}</Typography>
                   <Typography variant="body2" sx={{ fontWeight: 700, fontSize: '0.95rem', color: '#1a1a1a' }}>${item.amount.toLocaleString()}</Typography>
                 </Box>
@@ -1254,11 +1254,11 @@ const Dashboard = () => {
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Communication" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
+            <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>8</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Chats</Typography>
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1, mb: 3 }}>
+            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -1321,11 +1321,11 @@ const Dashboard = () => {
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Wallet" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
+            <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>10</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Wallet</Typography>
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1, mb: 3 }}>
+            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -1384,15 +1384,15 @@ const Dashboard = () => {
         </Grid>
 
         {/* Notifications */}
-        <Grid item xs={12} md={6} lg={6}>
+        {/* <Grid item xs={12} md={6} lg={6}>
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Notifications" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
+            <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>8</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Notifications</Typography>
             </Box>
-            <Box sx={{ height: 300, flexGrow: 1, mb: 3 }}>
+            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -1448,15 +1448,15 @@ const Dashboard = () => {
               </WidgetCard>
             </div>
           </Grow>
-        </Grid>
+        </Grid> */}
 
         {/* Recent Activity */}
         <Grid item xs={12} md={6} lg={6}>
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Recent Activity" loading={isLoading}>
-                <Box sx={{ mb: 3 }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 2, fontWeight: 500 }}>Latest System Events</Typography>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 1.5, fontWeight: 500 }}>Latest System Events</Typography>
                   {[
                     { action: 'New vendor registered', time: '2 min ago', type: 'success' },
                     { action: 'Payment processed', time: '5 min ago', type: 'info' },
@@ -1467,8 +1467,8 @@ const Dashboard = () => {
                     <Box key={index} sx={{ 
                       display: 'flex', 
                       alignItems: 'center', 
-                      mb: 2, 
-                      p: 1.5, 
+                      mb: 1.5, 
+                      p: 1, 
                       borderRadius: 2,
                       background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(248,250,252,0.5) 100%)',
                       border: '1px solid rgba(0,0,0,0.05)'
@@ -1501,8 +1501,8 @@ const Dashboard = () => {
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Performance Metrics" loading={isLoading}>
-                <Box sx={{ mb: 3 }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 2, fontWeight: 500 }}>System Performance</Typography>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 1.5, fontWeight: 500 }}>System Performance</Typography>
                   {[
                     { metric: 'Server Uptime', value: '99.9%', color: '#4caf50' },
                     { metric: 'Response Time', value: '120ms', color: '#2196f3' },
@@ -1510,8 +1510,8 @@ const Dashboard = () => {
                     { metric: 'Memory Usage', value: '67%', color: '#f44336' },
                     { metric: 'Database Queries', value: '1.2s', color: '#9c27b0' }
                   ].map((metric, index) => (
-                    <Box key={index} sx={{ mb: 2 }}>
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
+                    <Box key={index} sx={{ mb: 1.5 }}>
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
                         <Typography variant="body2" sx={{ fontWeight: 600, color: '#1a1a1a', fontSize: '0.9rem' }}>
                           {metric.metric}
                         </Typography>
@@ -1548,9 +1548,9 @@ const Dashboard = () => {
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Quick Actions" loading={isLoading}>
-                <Box sx={{ mb: 3 }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 2, fontWeight: 500 }}>Common Tasks</Typography>
-                  <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 2 }}>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 1.5, fontWeight: 500 }}>Common Tasks</Typography>
+                  <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1.5 }}>
                     {[
                       { label: 'Add Vendor', icon: StoreIcon, color: '#4caf50' },
                       { label: 'Create Deal', icon: PaymentIcon, color: '#2196f3' },
@@ -1558,8 +1558,8 @@ const Dashboard = () => {
                       { label: 'View Reports', icon: AnalyticsIcon, color: '#9c27b0' }
                     ].map((action, index) => (
                       <Box key={index} sx={{ 
-                        p: 2, 
-                        borderRadius: 3, 
+                        p: 1.5, 
+                        borderRadius: 2, 
                         background: `linear-gradient(135deg, ${action.color}15, ${action.color}05)`,
                         border: `1px solid ${action.color}30`,
                         textAlign: 'center',
