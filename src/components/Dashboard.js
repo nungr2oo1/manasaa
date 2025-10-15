@@ -255,6 +255,7 @@ const WidgetCard = ({ title, children, live = true, loading = false }) => (
   <Fade in timeout={800}>
     <Card sx={{ 
       height: '100%', 
+      minHeight: 480,
       borderRadius: 4, 
       background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
       border: '1px solid rgba(0,0,0,0.05)',
@@ -852,607 +853,432 @@ const Dashboard = () => {
         </Grid>
       </Grid>
 
-      {/* Dashboard Widgets */}
+      {/* Dashboard Widgets - 3 Column Layout */}
       <Grid container spacing={{ xs: 1.5, sm: 2, md: 2.5 }} sx={{ position: 'relative', zIndex: 1 }}>
+        {/* Row 1 */}
         {/* Customers */}
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} lg={4}>
           <Grow in timeout={600}>
             <div>
               <WidgetCard title="Customers" loading={isLoading}>
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Total Customer</Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>3,500</Typography>
-            </Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>PPU</Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>$2.25</Typography>
-            </Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Subscriber</Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>1,200</Typography>
-            </Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>New This Month</Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>+245</Typography>
-            </Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Active Rate</Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>78%</Typography>
-            </Box>
-            <Box sx={{ mb: 2, p: 1.5, background: 'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)', borderRadius: 2, border: '1px solid rgba(255, 193, 7, 0.2)' }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 1, fontWeight: 600 }}>
-                Gap Analysis: 2,300 non-subscribers (65.7%)
-              </Typography>
-              <LinearProgress 
-                variant="determinate" 
-                value={34.3} 
-                sx={{ 
-                  height: 8, 
-                  borderRadius: 4,
-                  backgroundColor: '#ffcc02',
-                  '& .MuiLinearProgress-bar': {
-                    background: 'linear-gradient(90deg, #4caf50, #45a049)',
-                    borderRadius: 4
-                  }
-                }} 
-              />
-            </Box>
-            {/* <Box sx={{ height: 200, flexGrow: 1 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={customerTrendData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis 
-                    dataKey="year" 
-                    fontSize={11} 
-                    tick={{ fill: '#666' }}
-                    axisLine={{ stroke: '#e0e0e0' }}
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Total Customer</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>3,500</Typography>
+                </Box>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>PPU</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>$2.25</Typography>
+                </Box>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Subscriber</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>1,200</Typography>
+                </Box>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>New This Month</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>+245</Typography>
+                </Box>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Active Rate</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>78%</Typography>
+                </Box>
+                {/* <Box sx={{ mb: 2, p: 1.5, background: 'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)', borderRadius: 2, border: '1px solid rgba(255, 193, 7, 0.2)' }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 1, fontWeight: 600 }}>
+                    Gap Analysis: 2,300 non-subscribers (65.7%)
+                  </Typography>
+                  <LinearProgress 
+                    variant="determinate" 
+                    value={34.3} 
+                    sx={{ 
+                      height: 8, 
+                      borderRadius: 4,
+                      backgroundColor: '#ffcc02',
+                      '& .MuiLinearProgress-bar': {
+                        background: 'linear-gradient(90deg, #4caf50, #45a049)',
+                        borderRadius: 4
+                      }
+                    }} 
                   />
-                  <YAxis 
-                    fontSize={11} 
-                    tick={{ fill: '#666' }}
-                    axisLine={{ stroke: '#e0e0e0' }}
-                  />
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                  <Line 
-                    type="monotone" 
-                    dataKey="customers" 
-                    stroke="url(#customerGradient)" 
-                    strokeWidth={4} 
-                    dot={{ fill: '#2196f3', strokeWidth: 3, r: 5 }} 
-                    activeDot={{ r: 7, stroke: '#2196f3', strokeWidth: 2 }}
-                  />
-                  <defs>
-                    <linearGradient id="customerGradient" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#2196f3" />
-                      <stop offset="100%" stopColor="#21cbf3" />
-                    </linearGradient>
-                  </defs>
-                </LineChart>
-              </ResponsiveContainer>
-            </Box> */}
+                </Box> */}
               </WidgetCard>
             </div>
           </Grow>
         </Grid>
 
         {/* Vendors */}
-        <Grid item xs={12} md={6} lg={4}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={800}>
             <div>
               <WidgetCard title="Vendors" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 2 }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>10</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Vendors</Typography>
-            </Box>
-            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={vendorData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={95}
-                    dataKey="value"
-                    stroke="#fff"
-                    strokeWidth={3}
-                    paddingAngle={2}
-                  >
-                    {vendorData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
-                border: '1px solid rgba(76, 175, 80, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>7</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Active</Typography>
-              </Box>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%)',
-                border: '1px solid rgba(255, 152, 0, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#ff9800', fontSize: '1.25rem' }}>3</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Pending Approval</Typography>
-              </Box>
-            </Box>
+                <Box sx={{ textAlign: 'center', mb: 2 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>10</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Vendors</Typography>
+                </Box>
+                <Box sx={{ height: 180, flexGrow: 1, mb: 2 }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={vendorData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        dataKey="value"
+                        stroke="#fff"
+                        strokeWidth={3}
+                        paddingAngle={2}
+                      >
+                        {vendorData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <RechartsTooltip 
+                        contentStyle={{
+                          backgroundColor: 'rgba(255,255,255,0.95)',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          borderRadius: 8,
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
+                    border: '1px solid rgba(76, 175, 80, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>7</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Active</Typography>
+                  </Box>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%)',
+                    border: '1px solid rgba(255, 152, 0, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#ff9800', fontSize: '1.25rem' }}>3</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Pending Approval</Typography>
+                  </Box>
+                </Box>
               </WidgetCard>
             </div>
           </Grow>
         </Grid>
-
-        {/* Deals */}
-        {/* <Grid item xs={12} md={6} lg={4}>
-          <Grow in timeout={600}>
-            <div>
-              <WidgetCard title="Deals" loading={isLoading}>
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 0.5, fontWeight: 500 }}>Total Deals</Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#1a1a1a' }}>20</Typography>
-            </Box>
-            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={dealsData} layout="horizontal" margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis 
-                    type="number" 
-                    fontSize={11} 
-                    tick={{ fill: '#666' }}
-                    axisLine={{ stroke: '#e0e0e0' }}
-                  />
-                  <YAxis 
-                    dataKey="status" 
-                    type="category" 
-                    width={100} 
-                    fontSize={11} 
-                    tick={{ fill: '#666' }}
-                    axisLine={{ stroke: '#e0e0e0' }}
-                  />
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                  <Bar 
-                    dataKey="count" 
-                    fill="url(#dealsGradient)" 
-                    radius={[0, 6, 6, 0]} 
-                  />
-                  <defs>
-                    <linearGradient id="dealsGradient" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#2196f3" />
-                      <stop offset="100%" stopColor="#21cbf3" />
-                    </linearGradient>
-                  </defs>
-                </BarChart>
-              </ResponsiveContainer>
-            </Box>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-              {dealsData.map((deal, index) => (
-                <Chip
-                  key={index}
-                  label={`${deal.status}: ${deal.count}`}
-                  size="small"
-                  sx={{
-                    background: deal.status === 'Active' ? 'linear-gradient(135deg, #4caf50, #45a049)' : 
-                               deal.status === 'Under Review' ? 'linear-gradient(135deg, #ff9800, #f57c00)' :
-                               deal.status === 'Deactive' ? 'linear-gradient(135deg, #f44336, #d32f2f)' : 
-                               'linear-gradient(135deg, #9e9e9e, #757575)',
-                    color: 'white',
-                    fontSize: '0.75rem',
-                    height: 28,
-                    fontWeight: 600,
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                    '& .MuiChip-label': { px: 1.5 }
-                  }}
-                />
-              ))}
-            </Box>
-              </WidgetCard>
-            </div>
-          </Grow>
-        </Grid> */}
 
         {/* Coupons */}
-        <Grid item xs={12} md={6} lg={4}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={1000}>
             <div>
               <WidgetCard title="Coupons" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 2 }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>50</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Coupons</Typography>
-            </Box>
-            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={couponData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={95}
-                    dataKey="value"
-                    stroke="#fff"
-                    strokeWidth={3}
-                    paddingAngle={2}
-                  >
-                    {couponData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
-                border: '1px solid rgba(76, 175, 80, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>35</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Active/Generated</Typography>
-              </Box>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(244, 67, 54, 0.1) 0%, rgba(244, 67, 54, 0.05) 100%)',
-                border: '1px solid rgba(244, 67, 54, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#f44336', fontSize: '1.25rem' }}>15</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Cancelled</Typography>
-              </Box>
-            </Box>
+                <Box sx={{ textAlign: 'center', mb: 2 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>50</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Coupons</Typography>
+                </Box>
+                <Box sx={{ height: 180, flexGrow: 1, mb: 2 }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={couponData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        dataKey="value"
+                        stroke="#fff"
+                        strokeWidth={3}
+                        paddingAngle={2}
+                      >
+                        {couponData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <RechartsTooltip 
+                        contentStyle={{
+                          backgroundColor: 'rgba(255,255,255,0.95)',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          borderRadius: 8,
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
+                    border: '1px solid rgba(76, 175, 80, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>35</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Active/Generated</Typography>
+                  </Box>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(244, 67, 54, 0.1) 0%, rgba(244, 67, 54, 0.05) 100%)',
+                    border: '1px solid rgba(244, 67, 54, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#f44336', fontSize: '1.25rem' }}>15</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Cancelled</Typography>
+                  </Box>
+                </Box>
               </WidgetCard>
             </div>
           </Grow>
         </Grid>
 
+        {/* Row 2 */}
         {/* Communities */}
-        <Grid item xs={12} md={6} lg={4}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={1200}>
             <div>
               <WidgetCard title="Communities" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 2 }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>50</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Communities</Typography>
-            </Box>
-            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={communityData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={95}
-                    dataKey="value"
-                    stroke="#fff"
-                    strokeWidth={3}
-                    paddingAngle={2}
-                  >
-                    {communityData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%)',
-                border: '1px solid rgba(33, 150, 243, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#2196f3', fontSize: '1.25rem' }}>30</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Total Members</Typography>
-              </Box>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%)',
-                border: '1px solid rgba(255, 152, 0, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#ff9800', fontSize: '1.25rem' }}>20</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Total Vendors</Typography>
-              </Box>
-            </Box>
+                <Box sx={{ textAlign: 'center', mb: 2 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>50</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Communities</Typography>
+                </Box>
+                <Box sx={{ height: 180, flexGrow: 1, mb: 2 }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={communityData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        dataKey="value"
+                        stroke="#fff"
+                        strokeWidth={3}
+                        paddingAngle={2}
+                      >
+                        {communityData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <RechartsTooltip 
+                        contentStyle={{
+                          backgroundColor: 'rgba(255,255,255,0.95)',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          borderRadius: 8,
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%)',
+                    border: '1px solid rgba(33, 150, 243, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#2196f3', fontSize: '1.25rem' }}>30</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Total Members</Typography>
+                  </Box>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%)',
+                    border: '1px solid rgba(255, 152, 0, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#ff9800', fontSize: '1.25rem' }}>20</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Total Vendors</Typography>
+                  </Box>
+                </Box>
               </WidgetCard>
             </div>
           </Grow>
         </Grid>
 
         {/* Wah! Revenue */}
-        <Grid item xs={12} md={6} lg={4}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={1400}>
             <div>
               <WidgetCard title="Wah! Revenue" loading={isLoading}>
-            {revenueData.map((item, index) => (
-              <Box key={index} sx={{ mb: 2 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>{item.category}</Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 700, fontSize: '0.95rem', color: '#1a1a1a' }}>${item.amount.toLocaleString()}</Typography>
+                <Box sx={{ textAlign: 'center', mb: 2 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>$7,825</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Revenue</Typography>
                 </Box>
-                <LinearProgress 
-                  variant="determinate" 
-                  value={item.percentage} 
-                  sx={{ 
-                    height: 12, 
-                    borderRadius: 6,
-                    backgroundColor: '#e0e0e0',
-                    '& .MuiLinearProgress-bar': {
-                      background: 'linear-gradient(90deg, #ff6b35, #ff8a65)',
-                      borderRadius: 6
-                    }
-                  }} 
-                />
-              </Box>
-            ))}
+                {revenueData.slice(1).map((item, index) => (
+                  <Box key={index} sx={{ mb: 2 }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
+                      <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>{item.category}</Typography>
+                      <Typography variant="body2" sx={{ fontWeight: 700, fontSize: '0.95rem', color: '#1a1a1a' }}>${item.amount.toLocaleString()}</Typography>
+                    </Box>
+                    <LinearProgress 
+                      variant="determinate" 
+                      value={item.percentage} 
+                      sx={{ 
+                        height: 12, 
+                        borderRadius: 6,
+                        backgroundColor: '#e0e0e0',
+                        '& .MuiLinearProgress-bar': {
+                          background: 'linear-gradient(90deg, #ff6b35, #ff8a65)',
+                          borderRadius: 6
+                        }
+                      }} 
+                    />
+                  </Box>
+                ))}
               </WidgetCard>
             </div>
           </Grow>
         </Grid>
 
         {/* Communication */}
-        <Grid item xs={12} md={6} lg={4}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={1600}>
             <div>
               <WidgetCard title="Communication" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 2 }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>8</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Chats</Typography>
-            </Box>
-            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={communicationData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={95}
-                    dataKey="value"
-                    stroke="#fff"
-                    strokeWidth={3}
-                    paddingAngle={2}
-                  >
-                    {communicationData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
-                border: '1px solid rgba(76, 175, 80, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>5</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Vendor Chats</Typography>
-              </Box>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%)',
-                border: '1px solid rgba(33, 150, 243, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#2196f3', fontSize: '1.25rem' }}>3</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Customer Chats</Typography>
-              </Box>
-            </Box>
+                <Box sx={{ textAlign: 'center', mb: 2 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>8</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Total Chats</Typography>
+                </Box>
+                <Box sx={{ height: 180, flexGrow: 1, mb: 2 }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={communicationData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        dataKey="value"
+                        stroke="#fff"
+                        strokeWidth={3}
+                        paddingAngle={2}
+                      >
+                        {communicationData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <RechartsTooltip 
+                        contentStyle={{
+                          backgroundColor: 'rgba(255,255,255,0.95)',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          borderRadius: 8,
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
+                    border: '1px solid rgba(76, 175, 80, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>5</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Vendor Chats</Typography>
+                  </Box>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%)',
+                    border: '1px solid rgba(33, 150, 243, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#2196f3', fontSize: '1.25rem' }}>3</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Customer Chats</Typography>
+                  </Box>
+                </Box>
               </WidgetCard>
             </div>
           </Grow>
         </Grid>
 
+        {/* Row 3 */}
         {/* Wallet */}
-        <Grid item xs={12} md={6} lg={4}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={1800}>
             <div>
               <WidgetCard title="Wallet" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 2 }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>10</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Wallet</Typography>
-            </Box>
-            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={walletData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={95}
-                    dataKey="value"
-                    stroke="#fff"
-                    strokeWidth={3}
-                    paddingAngle={2}
-                  >
-                    {walletData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
-                border: '1px solid rgba(76, 175, 80, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>6</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Customer Wallet</Typography>
-              </Box>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%)',
-                border: '1px solid rgba(255, 152, 0, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#ff9800', fontSize: '1.25rem' }}>4</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Vendor Wallet</Typography>
-              </Box>
-            </Box>
+                <Box sx={{ textAlign: 'center', mb: 2 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>10</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Wallet</Typography>
+                </Box>
+                <Box sx={{ height: 180, flexGrow: 1, mb: 2 }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={walletData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        dataKey="value"
+                        stroke="#fff"
+                        strokeWidth={3}
+                        paddingAngle={2}
+                      >
+                        {walletData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <RechartsTooltip 
+                        contentStyle={{
+                          backgroundColor: 'rgba(255,255,255,0.95)',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          borderRadius: 8,
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
+                    border: '1px solid rgba(76, 175, 80, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>6</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Customer Wallet</Typography>
+                  </Box>
+                  <Box sx={{ 
+                    textAlign: 'center', 
+                    flex: 1, 
+                    p: 1.5, 
+                    borderRadius: 2, 
+                    background: 'linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%)',
+                    border: '1px solid rgba(255, 152, 0, 0.2)'
+                  }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#ff9800', fontSize: '1.25rem' }}>4</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Vendor Wallet</Typography>
+                  </Box>
+                </Box>
               </WidgetCard>
             </div>
           </Grow>
         </Grid>
 
-        {/* Notifications */}
-        {/* <Grid item xs={12} md={6} lg={6}>
-          <Grow in timeout={600}>
-            <div>
-              <WidgetCard title="Notifications" loading={isLoading}>
-            <Box sx={{ textAlign: 'center', mb: 2 }}>
-              <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', fontSize: '2.25rem' }}>8</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', fontWeight: 500 }}>Notifications</Typography>
-            </Box>
-            <Box sx={{ height: 200, flexGrow: 1, mb: 2 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={notificationData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={95}
-                    dataKey="value"
-                    stroke="#fff"
-                    strokeWidth={3}
-                    paddingAngle={2}
-                  >
-                    {notificationData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip 
-                    contentStyle={{
-                      backgroundColor: 'rgba(255,255,255,0.95)',
-                      border: '1px solid rgba(0,0,0,0.1)',
-                      borderRadius: 8,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%)',
-                border: '1px solid rgba(76, 175, 80, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#4caf50', fontSize: '1.25rem' }}>5</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Opened Notifications</Typography>
-              </Box>
-              <Box sx={{ 
-                textAlign: 'center', 
-                flex: 1, 
-                p: 1.5, 
-                borderRadius: 2, 
-                background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%)',
-                border: '1px solid rgba(33, 150, 243, 0.2)'
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: '#2196f3', fontSize: '1.25rem' }}>3</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', fontWeight: 500 }}>Read Notifications</Typography>
-              </Box>
-            </Box>
-              </WidgetCard>
-            </div>
-          </Grow>
-        </Grid> */}
-
         {/* Recent Activity */}
-        <Grid item xs={12} md={6} lg={6}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={2000}>
             <div>
               <WidgetCard title="Recent Activity" loading={isLoading}>
                 <Box sx={{ mb: 2 }}>
@@ -1497,8 +1323,8 @@ const Dashboard = () => {
         </Grid>
 
         {/* Performance Metrics */}
-        <Grid item xs={12} md={6} lg={6}>
-          <Grow in timeout={600}>
+        <Grid item xs={12} lg={4}>
+          <Grow in timeout={2200}>
             <div>
               <WidgetCard title="Performance Metrics" loading={isLoading}>
                 <Box sx={{ mb: 2 }}>
@@ -1537,46 +1363,6 @@ const Dashboard = () => {
                       />
                     </Box>
                   ))}
-                </Box>
-              </WidgetCard>
-            </div>
-          </Grow>
-        </Grid>
-
-        {/* Quick Actions */}
-        <Grid item xs={12} md={6} lg={6}>
-          <Grow in timeout={600}>
-            <div>
-              <WidgetCard title="Quick Actions" loading={isLoading}>
-                <Box sx={{ mb: 2 }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', mb: 1.5, fontWeight: 500 }}>Common Tasks</Typography>
-                  <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1.5 }}>
-                    {[
-                      { label: 'Add Vendor', icon: StoreIcon, color: '#4caf50' },
-                      { label: 'Create Deal', icon: PaymentIcon, color: '#2196f3' },
-                      { label: 'Generate Coupon', icon: MarkEmailReadIcon, color: '#ff9800' },
-                      { label: 'View Reports', icon: AnalyticsIcon, color: '#9c27b0' }
-                    ].map((action, index) => (
-                      <Box key={index} sx={{ 
-                        p: 1.5, 
-                        borderRadius: 2, 
-                        background: `linear-gradient(135deg, ${action.color}15, ${action.color}05)`,
-                        border: `1px solid ${action.color}30`,
-                        textAlign: 'center',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          transform: 'translateY(-2px)',
-                          boxShadow: `0 4px 15px ${action.color}30`
-                        }
-                      }}>
-                        <action.icon sx={{ color: action.color, fontSize: 28, mb: 1 }} />
-                        <Typography variant="body2" sx={{ fontWeight: 600, color: '#1a1a1a', fontSize: '0.85rem' }}>
-                          {action.label}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Box>
                 </Box>
               </WidgetCard>
             </div>
