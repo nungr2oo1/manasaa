@@ -118,22 +118,25 @@ const SummaryCard = ({ title, value, icon, color = '#ff6b35' }) => (
         transform: 'translateY(-2px)'
       }
     }}>
-      <CardContent sx={{ p: 3, textAlign: 'center' }}>
+      <CardContent sx={{ 
+        p: { xs: 2, sm: 3 }, 
+        textAlign: 'center' 
+      }}>
         <Box sx={{ 
           display: 'flex', 
           justifyContent: 'center', 
           alignItems: 'center',
-          mb: 2,
-          p: 1.5,
+          mb: { xs: 1.5, sm: 2 },
+          p: { xs: 1, sm: 1.5 },
           borderRadius: '50%',
           backgroundColor: `${color}15`,
-          width: 60,
-          height: 60,
+          width: { xs: 50, sm: 60 },
+          height: { xs: 50, sm: 60 },
           mx: 'auto'
         }}>
           {React.cloneElement(icon, { 
             sx: { 
-              fontSize: 28, 
+              fontSize: { xs: 24, sm: 28 }, 
               color: color,
               filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
             } 
@@ -142,7 +145,7 @@ const SummaryCard = ({ title, value, icon, color = '#ff6b35' }) => (
         <Typography variant="h4" sx={{ 
           fontWeight: 800, 
           mb: 1,
-          fontSize: '2.5rem',
+          fontSize: { xs: '2rem', sm: '2.5rem' },
           background: 'linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
@@ -152,7 +155,7 @@ const SummaryCard = ({ title, value, icon, color = '#ff6b35' }) => (
         </Typography>
         <Typography variant="body1" sx={{ 
           color: 'text.secondary',
-          fontSize: '1rem',
+          fontSize: { xs: '0.9rem', sm: '1rem' },
           fontWeight: 600,
           letterSpacing: '0.02em'
         }}>
@@ -277,13 +280,14 @@ const Vendors = () => {
       {/* Summary Cards */}
       <Box sx={{ 
         display: 'flex', 
+        flexDirection: { xs: 'column', sm: 'row' },
         gap: { xs: 2, sm: 3, md: 4 }, 
         mb: { xs: 4, md: 5 }, 
         position: 'relative', 
         zIndex: 1,
         width: '100%'
       }}>
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 'auto' } }}>
           <Grow in timeout={600}>
             <div>
               <SummaryCard
@@ -295,7 +299,7 @@ const Vendors = () => {
             </div>
           </Grow>
         </Box>
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 'auto' } }}>
           <Grow in timeout={800}>
             <div>
               <SummaryCard
@@ -307,7 +311,7 @@ const Vendors = () => {
             </div>
           </Grow>
         </Box>
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 'auto' } }}>
           <Grow in timeout={1000}>
             <div>
               <SummaryCard
@@ -319,7 +323,7 @@ const Vendors = () => {
             </div>
           </Grow>
         </Box>
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 'auto' } }}>
           <Grow in timeout={1200}>
             <div>
               <SummaryCard
