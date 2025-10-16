@@ -27,9 +27,9 @@ import {
   AccountBalanceWallet as WalletIcon,
   Logout as LogoutIcon,
   ExpandLess,
-  ExpandMore,
-  ShoppingBag
+  ExpandMore
 } from '@mui/icons-material';
+import logoImage from '../asserts/Logo.png';
 
 const drawerWidth = 280;
 
@@ -77,10 +77,18 @@ const SideMenu = ({ activeItem, onItemClick, mobileOpen, onMobileClose, isMobile
     <>
       {/* Logo Section */}
       <Box sx={{ p: 3, display: 'flex', alignItems: 'center', gap: 1 }}>
-        <ShoppingBag sx={{ color: '#ff6b35', fontSize: 28 }} />
-        <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>
+        <img 
+          src={logoImage} 
+          alt="Wah! Smart Deals Logo" 
+          style={{ 
+            height: '70px', 
+            width: 'auto',
+            objectFit: 'contain'
+          }} 
+        />
+        {/* <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>
           Wah! Smart Deals
-        </Typography>
+        </Typography> */}
       </Box>
 
       <Divider sx={{ backgroundColor: '#404040' }} />
