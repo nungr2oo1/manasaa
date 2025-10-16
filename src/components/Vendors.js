@@ -376,6 +376,7 @@ const Vendors = () => {
             border: '1px solid rgba(0,0,0,0.1)',
             color: 'text.primary',
             fontWeight: 600,
+            padding: "13px",
             '&:hover': {
               backgroundColor: 'rgba(255,255,255,0.95)',
               border: '1px solid rgba(0,0,0,0.2)'
@@ -397,6 +398,7 @@ const Vendors = () => {
             border: '1px solid rgba(0,0,0,0.1)',
             color: 'text.primary',
             fontWeight: 600,
+            padding: "13px",
             '&:hover': {
               backgroundColor: 'rgba(255,255,255,0.95)',
               border: '1px solid rgba(0,0,0,0.2)'
@@ -415,6 +417,7 @@ const Vendors = () => {
             boxShadow: '0 4px 15px rgba(255, 107, 53, 0.3)',
             fontWeight: 600,
             px: 3,
+            padding: "13px 24px",
             '&:hover': {
               background: 'linear-gradient(135deg, #e55a2b 0%, #ff7a55 100%)',
               boxShadow: '0 6px 20px rgba(255, 107, 53, 0.4)',
