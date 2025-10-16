@@ -275,8 +275,15 @@ const Vendors = () => {
       </Box>
 
       {/* Summary Cards */}
-      <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: { xs: 4, md: 5 }, position: 'relative', zIndex: 1 }}>
-        <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ 
+        display: 'flex', 
+        gap: { xs: 2, sm: 3, md: 4 }, 
+        mb: { xs: 4, md: 5 }, 
+        position: 'relative', 
+        zIndex: 1,
+        width: '100%'
+      }}>
+        <Box sx={{ flex: 1 }}>
           <Grow in timeout={600}>
             <div>
               <SummaryCard
@@ -287,8 +294,8 @@ const Vendors = () => {
               />
             </div>
           </Grow>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        </Box>
+        <Box sx={{ flex: 1 }}>
           <Grow in timeout={800}>
             <div>
               <SummaryCard
@@ -299,8 +306,8 @@ const Vendors = () => {
               />
             </div>
           </Grow>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        </Box>
+        <Box sx={{ flex: 1 }}>
           <Grow in timeout={1000}>
             <div>
               <SummaryCard
@@ -311,8 +318,8 @@ const Vendors = () => {
               />
             </div>
           </Grow>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        </Box>
+        <Box sx={{ flex: 1 }}>
           <Grow in timeout={1200}>
             <div>
               <SummaryCard
@@ -323,8 +330,8 @@ const Vendors = () => {
               />
             </div>
           </Grow>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
 
       {/* Table Controls */}
       <Box sx={{ 
