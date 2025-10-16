@@ -108,7 +108,7 @@ const SummaryCard = ({ title, value, icon, color = '#ff6b35' }) => (
   <Fade in timeout={600}>
     <Card sx={{ 
       height: '100%', 
-      borderRadius: 3, 
+      borderRadius: 3,  
       background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
       border: '1px solid rgba(0,0,0,0.05)',
       boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
